@@ -9,13 +9,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Survival implements ISurvivalAction, Serializable {
+public class Survival implements  Serializable, ISurvivalAction {
     private int health=70, hunger=70, thirst=70;
     private double dmg = 6, atkSpeed=1.8,dps=dmg*atkSpeed;
     private String code;
     private double currentCoin;
-    List<Equipment> inventory = new ArrayList<>();
-    Map<String, Equipment> slot = new HashMap<>(5);
+    private List<Equipment> inventory = new ArrayList<>();
+    private Map<String, Equipment> slot = new HashMap<>(5);
 
 
     public Survival() {
@@ -30,22 +30,6 @@ public class Survival implements ISurvivalAction, Serializable {
         this.code = code;
         this.currentCoin = currentCoin;
         inventory.add(new Food("Pack of thuoc lao","vietnamese tabaco","other",100,100,0,0));
-    }
-
-    @Override
-    public String toString() {
-        return "Survival{" +
-                "health=" + health +
-                ", hunger=" + hunger +
-                ", thirst=" + thirst +
-                ", dmg=" + dmg +
-                ", atkSpeed=" + atkSpeed +
-                ", dps=" + dps +
-                ", code='" + code + '\'' +
-                ", currentCoin=" + currentCoin +
-                ", inventory=" + inventory +
-                ", slot=" + slot +
-                '}';
     }
     @Override
     public void buy(Equipment equipment) {
@@ -71,5 +55,25 @@ public class Survival implements ISurvivalAction, Serializable {
     @Override
     public void search() {
 
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    @Override
+    public String toString() {
+        return "Survival{" +
+                "health=" + health +
+                ", hunger=" + hunger +
+                ", thirst=" + thirst +
+                ", dmg=" + dmg +
+                ", atkSpeed=" + atkSpeed +
+                ", dps=" + dps +
+                ", code='" + code + '\'' +
+                ", currentCoin=" + currentCoin +
+                ", inventory=" + inventory +
+                ", slot=" + slot +
+                '}';
     }
 }

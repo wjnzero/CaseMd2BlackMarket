@@ -44,4 +44,13 @@ public class Admin implements Serializable {
         survivalList.add(survival);
         readWriteSurvival.writeData(survivalList);
     }
+    public boolean checkSurvival(String code){
+        for (Survival sv:survivalList
+             ) {
+            if (code.equalsIgnoreCase(sv.getCode())){
+                return true;
+            }
+        }
+        return false;
+    }
 }
