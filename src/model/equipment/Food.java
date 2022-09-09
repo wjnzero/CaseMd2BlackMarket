@@ -1,6 +1,6 @@
 package model.equipment;
 
-public class Food extends Equipment{
+public class Food extends Equipment {
     int health, hunger, thirst;
 
     public Food(String name, String notes, String type, int price, int health, int hunger, int thirst) {

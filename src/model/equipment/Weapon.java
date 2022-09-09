@@ -1,6 +1,6 @@
 package model.equipment;
 
-public class Weapon extends Equipment{
+public class Weapon extends Equipment {
     private double dmg, atkSpeed,dps;
 
     public Weapon(String name, String notes, String type, int price, int durability, double dmg, double atkSpeed) {

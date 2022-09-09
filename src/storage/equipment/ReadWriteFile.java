@@ -51,6 +51,5 @@ public class ReadWriteFile implements IReadWriteEquipment{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

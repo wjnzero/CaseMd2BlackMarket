@@ -1,6 +1,6 @@
 package model.equipment;
 
-public class Armor extends Equipment{
+public class Armor extends Equipment {
     private int defence, speed, armorRadiation;
 
     public Armor() {
