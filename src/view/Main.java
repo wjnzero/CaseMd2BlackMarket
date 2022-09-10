@@ -19,8 +19,8 @@ public class Main {
 
     static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) throws AWTException {
-//        Equipment equipmentTest = new Armor("Sneakers", "Sports shoes with a flat heel", "Feet", 100, 100, 0,1,0);
+    public static void main(String[] args) {
+//        Equipment equipmentTest = new Weapon("Bow", "Simple ranged fight weapon that helps the shooter not to attract much attention", "ranger", 50, 100, 20,1);
 //        Survival survival = new Survival("phongCho",5);
 //        admin.addSurvival(survival);
 //        admin.addEquip(equipmentTest);
@@ -32,27 +32,91 @@ public class Main {
 //        System.out.println("");
 //        Menu.checkingSurvival();
         index();
-//        Menu.block();
+//        Menu.adminEquipList();
     }
-    public static void index(){
+    public static void index() {
         Menu.welcome();
+        int choice = 0;
+        try {
+            choice = Integer.parseInt(scanner.nextLine());
+            switch (choice) {
+                case 1:
+                    clear();
+                    sleep(0.01);
+                    Menu.checkingSurvival();
+                    checkSurvival();
+                    break;
+                case 2:
+                    clear();
+                    sleep(0.01);
+                    Menu.checkingAdmin();
+                    checkAdmin();
+                    break;
+                case 0:
+                    clear();
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("[❌] Wrong answer !!!");
+                    break;
+            }
+        } catch (Exception e){
+            System.out.println("you fill text, market closed!");
+        }
+
+
+    }
+    public static void adminView(){
+        Menu.welcomeAdmin();
         int choice = Integer.parseInt(scanner.nextLine());
         switch (choice) {
             case 1:
                 clear();
                 sleep(0.01);
-                Menu.checkingSurvival();
-                checkSurvival();
+                Menu.adminEquipList();
+                adminEquipmentList();
                 break;
             case 2:
                 clear();
                 sleep(0.01);
-                Menu.checkingAdmin();
-                checkAdmin();
+//                Menu.checkingSurvival();
+//                checkSurvival();
                 break;
             case 0:
                 clear();
-                System.exit(0);
+                sleep(0.01);
+                index();
+                break;
+            default:
+                System.out.println("[❌] Wrong answer !!!");
+                break;
+        }
+    }
+    public static void adminEquipmentList(){
+        int choice = Integer.parseInt(scanner.nextLine());
+        switch (choice) {
+            case 1:
+                clear();
+                sleep(0.01);
+                Menu.adminEquipList();
+//                checkSurvival();
+                break;
+            case 2:
+                clear();
+                sleep(0.01);
+//                Menu.checkingSurvival();
+//                checkSurvival();
+                break;
+            case 3:
+                clear();
+                sleep(0.01);
+//                Menu.checkingSurvival();
+//                checkSurvival();
+                break;
+            case 0:
+                clear();
+                sleep(0.01);
+                adminView();
                 break;
             default:
                 System.out.println("[❌] Wrong answer !!!");
@@ -87,7 +151,9 @@ public class Main {
             System.exit(0);
         }
         else if (Objects.equals(code, "hung")){
-            System.out.println("phog");
+            clear();
+            sleep(0.01);
+            adminView();
         }
         else if (Objects.equals(code, "0")){
             clear();

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Admin implements Serializable {
+    public static double coin = 9999999;
     private static IReadWriteEquipment readWriteEquipment = ReadWriteFile.getInstance();
     private static IReadWriteSurvival readWriteSurvival = ReadWriteSurvival.getInstance();
     public static List<Equipment> equipmentList;
@@ -26,6 +27,14 @@ public class Admin implements Serializable {
         survivalList = readWriteSurvival.readData();
         if (survivalList==null)
             survivalList=new ArrayList<>();
+    }
+
+    public static double getCoin() {
+        return coin;
+    }
+
+    public static void setCoin(double coin) {
+        Admin.coin = coin;
     }
 
     public void addEquip(Equipment equipment){
