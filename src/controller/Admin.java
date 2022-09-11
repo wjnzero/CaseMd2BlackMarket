@@ -45,8 +45,9 @@ public class Admin implements Serializable {
         equipmentList.remove(index);
         readWriteEquipment.writeData(equipmentList);
     }
-    public void setEquip(int index, Equipment element){
-        equipmentList.set(index,element);
+    public void setEquip(int index,String name){
+        equipmentList.get(index).setName(name);
+//        equipmentList.set(index,element);
         readWriteEquipment.writeData(equipmentList);
     }
     public void addSurvival(Survival survival){

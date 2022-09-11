@@ -135,7 +135,7 @@ public class Menu {
                 "║       ▄░░░░░░░░░░░▄       ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
                 "║          ▄▄▄▄▄▄▄          ║\t\t\t\t\t\t\t\t\t\t  ║\n"+
                 "╚=====================================================================╝");
-//        System.out.print("Fill here ▄︻┻═┳一: ");
+        System.out.print("Fill here ▄︻┻═┳一: ");
     }
     public static void welcomeAdmin(){
         System.out.println("╔=====================================================================╗\n"+
@@ -180,6 +180,7 @@ public class Menu {
                 "║       ▄░░░░░░░░░░░▄       ║\t"+">[3] Remove"+"\t\t\t\t\t\t\t  ║\n" +
                 "║          ▄▄▄▄▄▄▄          ║\t"+">[0] Return"+"\t\t\t\t\t\t\t  ║\n" +
                 "╚=====================================================================╝");
+        System.out.print("Fill here ▄︻┻═┳一: ");
         number=0;
     }
     public static String equipmentName(){

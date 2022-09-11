@@ -3,6 +3,8 @@ package view;
 import controller.Admin;
 import model.equipment.Armor;
 import model.equipment.Equipment;
+import model.equipment.Food;
+import model.equipment.Weapon;
 import model.user.Survival;
 
 import java.awt.*;
@@ -32,7 +34,7 @@ public class Main {
 //        Scanner in = new Scanner(System.in);
 //        System.out.println("");
 //        Menu.checkingSurvival();
-//        index();
+        index();
 //        Menu.addEquip();
 //        admin.removeEquip(4);
 //        System.out.println(equipmentList);
@@ -97,26 +99,33 @@ public class Main {
     }
     public static void adminEquipmentList(){
         Menu.adminEquipList();
-        System.out.print("Fill here ▄︻┻═┳一: ");
         int choice = Integer.parseInt(scanner.nextLine());
         switch (choice) {
             case 1:
                 clear();
                 sleep(0.01);
-                Menu.addEquip();
                 addE();
                 break;
             case 2:
+                System.out.println("Index? :");
+                int index = scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("NewName? :");
+                String newName = scanner.nextLine();
+                admin.setEquip(index,newName);
                 clear();
                 sleep(0.01);
-//                Menu.checkingSurvival();
-//                checkSurvival();
+                scanner = new Scanner(System.in);
+                adminEquipmentList();
                 break;
             case 3:
+                System.out.println("Index? :");
+                index = scanner.nextInt();
+                admin.removeEquip(index);
                 clear();
                 sleep(0.01);
-//                Menu.checkingSurvival();
-//                checkSurvival();
+                scanner = new Scanner(System.in);
+                adminEquipmentList();
                 break;
             case 0:
                 clear();
@@ -129,6 +138,7 @@ public class Main {
         }
     }
     public static void addE(){
+        Menu.addEquip();
         int choice = Integer.parseInt(scanner.nextLine());
         switch (choice) {
             case 1:
@@ -152,17 +162,52 @@ public class Main {
                 admin.addEquip(new Armor(name,notes,type,price,durability,defence,speed,armorRadiation));
                 clear();
                 sleep(0.01);
+                scanner = new Scanner(System.in);
                 adminEquipmentList();
                 break;
             case 2:
                 System.out.println("Food:");
-//                Menu.checkingSurvival();
-//                checkSurvival();
+                System.out.println("name:");
+                name = scanner.nextLine();
+                System.out.println("notes:");
+                notes = scanner.nextLine();
+                System.out.println("type:");
+                type = scanner.nextLine();
+                System.out.println("price:");
+                price = scanner.nextInt();
+                System.out.println("health:");
+                int health = scanner.nextInt();
+                System.out.println("hunger:");
+                int hunger = scanner.nextInt();
+                System.out.println("thirst:");
+                int thirst = scanner.nextInt();
+                admin.addEquip(new Food(name,notes,type,price,health,hunger,thirst));
+                clear();
+                sleep(0.01);
+                scanner = new Scanner(System.in);
+                adminEquipmentList();
                 break;
             case 3:
                 System.out.println("Weapon:");
-//                Menu.checkingSurvival();
-//                checkSurvival();
+                System.out.println("name:");
+                name = scanner.nextLine();
+                System.out.println("notes:");
+                notes = scanner.nextLine();
+                System.out.println("type:");
+                type = scanner.nextLine();
+                System.out.println("price:");
+                price = scanner.nextInt();
+                System.out.println("durability:");
+                durability = scanner.nextInt();
+                System.out.println("damage:");
+                double damage = scanner.nextDouble();
+                System.out.println("atkSpeed:");
+                double atkSpeed = scanner.nextDouble();
+                admin.addEquip(new Weapon(name,notes,type,price,durability,damage,atkSpeed));
+                clear();
+                sleep(0.01);
+                scanner = new Scanner(System.in);
+                adminEquipmentList();
                 break;
             case 0:
                 clear();
