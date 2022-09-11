@@ -31,15 +31,7 @@ public class Weapon extends Equipment {
 
     @Override
     public String toString() {
-        return "\nWeapon{" +
-                "name= " + super.getName() +
-                ", type= " + super.getType() +
-                ", price= " + super.getPrice() +
-                ", notes= " + super.getNotes() +
-                ", dmg=" + dmg +
-                ", atkSpeed=" + atkSpeed +
-                ", dps=" + getDps() +
-                '}';
+        return super.getName();
     }
 
 }

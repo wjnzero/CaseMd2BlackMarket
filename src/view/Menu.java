@@ -159,18 +159,40 @@ public class Menu {
                 "╚=====================================================================╝");
         System.out.print("Fill here ▄︻┻═┳一: ");
     }
+    public static String validateNameSurvival(){
+        String s = Main.survivalControl.currentCode();
+        if (Main.survivalControl.currentCode().length()<=5){
+            if (Main.survivalControl.currentCode().length()<=3){
+                return s+"\t";
+            }
+            return s+"\t\t";}
+        return s;
+    }
+    public static String validateCoinSurvival(){
+        String s = Main.survivalControl.currentCoin();
+        if (Main.survivalControl.currentCode().length()<=5)
+            return s+"\t";
+        return s;
+    }
+    public static String slotDisplay(){
+        String s = Main.survivalControl.slot2();
+        if (Main.survivalControl.slot2().length()>=Main.survivalControl.slot2().length())
+            return s;
+        else return s+"\t";
+    }
+
     public static void welcomeSurvival(){
         System.out.println("╔=====================================================================╗\n"+
                 "║       ▀▀▀░░░░░░░▀▀▀       ║\t☠☠☠ŚÚŔVĨVÁĹ ßĹÁČĶ MÁŔĶĔŤ☠☠☠\t  ║\n" +
                 "║    ▀░░░░░░░░░░░░░░░░░▀    ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
-                "║   │░░░░░░░░░░░░░░░░░░░│   ║\t"+"=> Halo, "+ Main.survivalControl.currentCode() +"\t\t\t\t\t  ║\n" +
-                "║  ▌│░░░░░░░░░░░░░░░░░░░│▐  ║\t"+"=> Your coin: "+ Main.survivalControl.currentCoin() +"\t\t\t\t\t  ║\n" +
+                "║   │░░░░░░░░░░░░░░░░░░░│   ║\t"+"=> Halo, "+ validateNameSurvival() +"\t\t\t\t\t  ║\n" +
+                "║  ▌│░░░░░░░░░░░░░░░░░░░│▐  ║\t"+"=> Your coin: "+ validateCoinSurvival() +"\t\t\t\t  ║\n" +
                 "║  ░└┐░░░░░░░░░░░░░░░░░┌┘░  ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
                 "║  ░░└┐░░░░░░░░░░░░░░░┌┘░░  ║\t"+Main.survivalControl.info1()+"\t\t  ║\n" +
                 "║  ░░┌┘▄▄▄▄▄░░░░░▄▄▄▄▄└┐░░  ║\t"+Main.survivalControl.info2()+"\t\t  ║\n" +
                 "║  ▌░│      ▌░░░▐      │░▐  ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
                 "║   ░│▐   ▀▀░░▄░░▀▀   ▌│░   ║\t"+Main.survivalControl.slot1()+"\t  ║\n" +
-                "║  ▀─┘░░░░░░░▐ ▌░░░░░░░└─▀  ║\t"+Main.survivalControl.slot2()+"\t\t  ║\n" +
+                "║  ▀─┘░░░░░░░▐ ▌░░░░░░░└─▀  ║\t"+slotDisplay()+"\t  ║\n" +
                 "║  ▄░░░▄▄▄▓░░▀ ▀░░▓▄▄▄░░░▄  ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
                 "║    ▄─┘  ▌░░░░░░░▐  └─▄    ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
                 "║     ░░▐ ─┬┬┬┬┬┬┬─ ▌░░     ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
@@ -186,20 +208,20 @@ public class Menu {
         System.out.println("╔=====================================================================╗\n"+
                 "║       ▀▀▀░░░░░░░▀▀▀       ║\t☠☠☠ŚÚŔVĨVÁĹ ßĹÁČĶ MÁŔĶĔŤ☠☠☠\t  ║\n" +
                 "║    ▀░░░░░░░░░░░░░░░░░▀    ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
-                "║   │░░░░░░░░░░░░░░░░░░░│   ║\t"+"=> Halo, "+ Main.survivalControl.currentCode() +"\t\t\t\t\t  ║\n" +
-                "║  ▌│░░░░░░░░░░░░░░░░░░░│▐  ║\t"+"=> Your coin: "+ Main.survivalControl.currentCoin() +"\t\t\t\t\t  ║\n" +
+                "║   │░░░░░░░░░░░░░░░░░░░│   ║\t"+"=> Halo, "+ validateNameSurvival() +"\t\t\t\t\t  ║\n" +
+                "║  ▌│░░░░░░░░░░░░░░░░░░░│▐  ║\t"+"=> Your coin: "+ validateCoinSurvival() +"\t\t\t\t\t  ║\n" +
                 "║  ░└┐░░░░░░░░░░░░░░░░░┌┘░  ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
-                "║  ░░└┐░░░░░░░░░░░░░░░┌┘░░  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
-                "║  ░░┌┘▄▄▄▄▄░░░░░▄▄▄▄▄└┐░░  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
-                "║  ▌░│      ▌░░░▐      │░▐  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
-                "║   ░│▐   ▀▀░░▄░░▀▀   ▌│░   ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
-                "║  ▀─┘░░░░░░░▐ ▌░░░░░░░└─▀  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
-                "║  ▄░░░▄▄▄▓░░▀ ▀░░▓▄▄▄░░░▄  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
-                "║    ▄─┘  ▌░░░░░░░▐  └─▄    ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
-                "║     ░░▐ ─┬┬┬┬┬┬┬─ ▌░░     ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
-                "║    ▌░░░▀┬┼┼┼┼┼┼┼┬▀░░░▐    ║\t"+">[1] Add"+"\t\t\t\t\t\t\t  ║\n" +
-                "║     ▄░░░└┴┴┴┴┴┴┴┘░░░▄     ║\t"+">[2] Set"+"\t\t\t\t\t\t\t  ║\n" +
-                "║       ▄░░░░░░░░░░░▄       ║\t"+">[3] Remove"+"\t\t\t\t\t\t\t  ║\n" +
+                "║  ░░└┐░░░░░░░░░░░░░░░┌┘░░  ║\t"+ survivalEquipmentName()+"\t\t\t\t  ║\n" +
+                "║  ░░┌┘▄▄▄▄▄░░░░░▄▄▄▄▄└┐░░  ║\t"+ survivalEquipmentName()+"\t\t\t\t  ║\n" +
+                "║  ▌░│      ▌░░░▐      │░▐  ║\t"+ survivalEquipmentName()+"\t\t\t\t  ║\n" +
+                "║   ░│▐   ▀▀░░▄░░▀▀   ▌│░   ║\t"+ survivalEquipmentName()+"\t\t\t\t  ║\n" +
+                "║  ▀─┘░░░░░░░▐ ▌░░░░░░░└─▀  ║\t"+ survivalEquipmentName()+"\t\t\t\t  ║\n" +
+                "║  ▄░░░▄▄▄▓░░▀ ▀░░▓▄▄▄░░░▄  ║\t"+ survivalEquipmentName()+"\t\t\t\t  ║\n" +
+                "║    ▄─┘  ▌░░░░░░░▐  └─▄    ║\t"+ survivalEquipmentName()+"\t\t\t\t  ║\n" +
+                "║     ░░▐ ─┬┬┬┬┬┬┬─ ▌░░     ║\t"+ survivalEquipmentName()+"\t\t\t\t  ║\n" +
+                "║    ▌░░░▀┬┼┼┼┼┼┼┼┬▀░░░▐    ║\t"+">[1] Use"+"\t\t\t\t\t\t\t  ║\n" +
+                "║     ▄░░░└┴┴┴┴┴┴┴┘░░░▄     ║\t"+">[2] Remove"+"\t\t\t\t\t\t\t  ║\n" +
+                "║       ▄░░░░░░░░░░░▄       ║\t"+">[3] Details"+"\t\t\t\t\t\t  ║\n" +
                 "║          ▄▄▄▄▄▄▄          ║\t"+">[0] Return"+"\t\t\t\t\t\t\t  ║\n" +
                 "╚=====================================================================╝");
         System.out.print("Fill here ▄︻┻═┳一: ");
@@ -224,6 +246,30 @@ public class Menu {
                 "║    ▌░░░▀┬┼┼┼┼┼┼┼┬▀░░░▐    ║\t"+">[1] Add"+"\t\t\t\t\t\t\t  ║\n" +
                 "║     ▄░░░└┴┴┴┴┴┴┴┘░░░▄     ║\t"+">[2] Set"+"\t\t\t\t\t\t\t  ║\n" +
                 "║       ▄░░░░░░░░░░░▄       ║\t"+">[3] Remove"+"\t\t\t\t\t\t\t  ║\n" +
+                "║          ▄▄▄▄▄▄▄          ║\t"+">[0] Return"+"\t\t\t\t\t\t\t  ║\n" +
+                "╚=====================================================================╝");
+        System.out.print("Fill here ▄︻┻═┳一: ");
+        number=0;
+    }
+    public static void availableEquipList(){
+
+        System.out.println("╔=====================================================================╗\n"+
+                "║       ▀▀▀░░░░░░░▀▀▀       ║\t☠☠☠ŚÚŔVĨVÁĹ ßĹÁČĶ MÁŔĶĔŤ☠☠☠\t  ║\n" +
+                "║    ▀░░░░░░░░░░░░░░░░░▀    ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
+                "║   │░░░░░░░░░░░░░░░░░░░│   ║\t"+"=> Halo, "+ validateNameSurvival() +"\t\t\t\t\t  ║\n" +
+                "║  ▌│░░░░░░░░░░░░░░░░░░░│▐  ║\t"+"=> Your coin: "+ validateCoinSurvival() +"\t\t\t\t\t  ║\n" +
+                "║  ░└┐░░░░░░░░░░░░░░░░░┌┘░  ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
+                "║  ░░└┐░░░░░░░░░░░░░░░┌┘░░  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║  ░░┌┘▄▄▄▄▄░░░░░▄▄▄▄▄└┐░░  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║  ▌░│      ▌░░░▐      │░▐  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║   ░│▐   ▀▀░░▄░░▀▀   ▌│░   ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║  ▀─┘░░░░░░░▐ ▌░░░░░░░└─▀  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║  ▄░░░▄▄▄▓░░▀ ▀░░▓▄▄▄░░░▄  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║    ▄─┘  ▌░░░░░░░▐  └─▄    ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║     ░░▐ ─┬┬┬┬┬┬┬─ ▌░░     ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║    ▌░░░▀┬┼┼┼┼┼┼┼┬▀░░░▐    ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
+                "║     ▄░░░└┴┴┴┴┴┴┴┘░░░▄     ║\t"+">[1] Buy"+"\t\t\t\t\t\t\t  ║\n" +
+                "║       ▄░░░░░░░░░░░▄       ║\t"+">[2] Details"+"\t\t\t\t\t\t  ║\n" +
                 "║          ▄▄▄▄▄▄▄          ║\t"+">[0] Return"+"\t\t\t\t\t\t\t  ║\n" +
                 "╚=====================================================================╝");
         System.out.print("Fill here ▄︻┻═┳一: ");
@@ -257,15 +303,34 @@ public class Menu {
             try {
                 String name = null;
                 name = Admin.equipmentList.get(number).getName()+"("+(Admin.equipmentList.get(number).getClass()).getSimpleName()+")";
-                if (name.length()<15)
+                if (name.length()<=11)
                     name+="\t";
-
+                if (name.length()>=12)
+                    name+="";
                 number++;
                 return name;
             }
             catch (Exception e){
                 return "\t\t\t";
             }
+    }
+    public static String survivalEquipmentName(){
+        try {
+            String name = null;
+            name = Main.survivalControl.inventory().get(number).getName()+"("+(Main.survivalControl.inventory().get(number).getClass()).getSimpleName()+")";
+            if (name.length()<5)
+                name+="\t\t\t";
+            else if (name.length() <= 11)
+                name+="\t\t\t";
+            else if (name.length() > 15)
+                name+="";
+
+            number++;
+            return name;
+        }
+        catch (Exception e){
+            return "\t\t\t\t\t";
+        }
     }
     public static String survivalName(){
         try {

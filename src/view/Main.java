@@ -26,24 +26,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-//        Equipment equipmentTest = new Weapon("Bow", "Simple ranged fight weapon that helps the shooter not to attract much attention", "ranger", 50, 100, 20,1);
-//        Survival survival = new Survival("phongCho",5);
-//        admin.addSurvival(survival);
-//        admin.addEquip(equipmentTest);
-//        System.out.println(equipmentList);
-//        System.out.println(survivalList);
-//        SurvivalControl survivalControl = new SurvivalControl(survivalList.get(0));
-//        System.out.println("https://static.wikia.nocookie.net/last-day-on-earth-survival/images/8/81/Hammer.png/revision/latest?cb=20190105193855");
-//        Scanner in = new Scanner(System.in);
-//        System.out.println("");
-//        Menu.checkingSurvival();
-//        admin.setCoin(9999999);
         index();
-//        Menu.addEquip();
-//        admin.removeEquip(4);
-//        System.out.println(equipmentList);
-//        admin.removeEquip(5);
-
     }
     public static void index() {
         Menu.welcome();
@@ -90,7 +73,6 @@ public class Main {
                 clear();
                 sleep(0.01);
                 adminSurvivalList();
-//                checkSurvival();
                 break;
             case 0:
                 clear();
@@ -109,13 +91,12 @@ public class Main {
             case 1:
                 clear();
                 sleep(0.01);
-                Menu.survivalEquipList();
+                survivalBuy();
                 break;
             case 2:
                 clear();
                 sleep(0.01);
-                adminSurvivalList();
-//                checkSurvival();
+                survivalEquipControl();
                 break;
             case 9:
                 System.out.println("input coin:");
@@ -131,6 +112,108 @@ public class Main {
                 clear();
                 sleep(0.01);
                 index();
+                break;
+            default:
+                System.out.println("[❌] Wrong answer !!!");
+                break;
+        }
+    }
+    public static void survivalEquipControl(){
+        Menu.survivalEquipList();
+        int choice = Integer.parseInt(scanner.nextLine());
+        switch (choice) {
+            case 1:
+                System.out.println("Enter index:");
+                int index = scanner.nextInt();
+                survivalControl.equipInventory((survivalControl.inventory()).get(index).getType(),(survivalControl.inventory()).get(index));
+                survivalControl.removeItem(index);
+                System.out.println("Done, return status in 3s");
+                scanner = new Scanner(System.in);
+                clear();
+                sleep(0.01);
+                survivalView();
+                break;
+            case 2:
+                System.out.println("Enter index:");
+                index = scanner.nextInt();
+                survivalControl.removeItem(index);
+                scanner = new Scanner(System.in);
+                clear();
+                sleep(0.01);
+                survivalEquipControl();
+                break;
+            case 3:
+                System.out.println("Enter index:");
+                int details = scanner.nextInt();
+                System.out.println(equipmentList.get(details).toString());
+                System.out.println("Press any number to return");
+                int key = scanner.nextInt();
+                scanner = new Scanner(System.in);
+                clear();
+                sleep(0.01);
+                survivalEquipControl();
+                break;
+            case 0:
+                clear();
+                sleep(0.01);
+                survivalView();
+                break;
+            default:
+                System.out.println("[❌] Wrong answer !!!");
+                break;
+        }
+    }
+    public static void survivalBuy(){
+        Menu.availableEquipList();
+        int choice = Integer.parseInt(scanner.nextLine());
+        switch (choice) {
+            case 1:
+                System.out.println("Enter item name:");
+                String itemName = scanner.nextLine();
+                boolean status=false;
+                for (Equipment e:equipmentList
+                     ) {
+                    if (Objects.equals(e.getName(), itemName)){
+                        if (e.getPrice()<survivalControl.currentCoinDouble()){
+                            survivalControl.buy(e);
+                            survivalControl.setCoin(survivalControl.currentCoinDouble()-e.getPrice());
+                            admin.removeEquip(itemName);
+                            status=true;
+                        }
+                        break;
+                    }
+                }
+                if (status){
+                    System.out.println("buy success, refresh shop in 2s");
+                    sleep(2);
+                    clear();
+                    sleep(0.01);
+                    survivalBuy();
+                }
+                else {
+                    System.out.println("invalid name, buy again in 3s ");
+                    sleep(2);
+                    clear();
+                    sleep(0.01);
+                    survivalBuy();
+                }
+                scanner = new Scanner(System.in);
+                break;
+            case 2:
+                System.out.println("Enter index:");
+                int details = scanner.nextInt();
+                System.out.println(equipmentList.get(details).toString());
+                System.out.println("Press any number to return");
+                int number = scanner.nextInt();
+                scanner = new Scanner(System.in);
+                clear();
+                sleep(0.01);
+                survivalBuy();
+                break;
+            case 0:
+                clear();
+                sleep(0.01);
+                survivalView();
                 break;
             default:
                 System.out.println("[❌] Wrong answer !!!");

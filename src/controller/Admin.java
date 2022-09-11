@@ -12,6 +12,7 @@ import storage.user.ReadWriteSurvival;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Admin implements Serializable {
     private static IReadWriteCoin readWriteCoin = ReadWriteCoin.getInstance();
@@ -24,7 +25,7 @@ public class Admin implements Serializable {
         }
     }
     private static IReadWriteEquipment readWriteEquipment = ReadWriteFile.getInstance();
-    private static IReadWriteSurvival readWriteSurvival = ReadWriteSurvival.getInstance();
+    public static IReadWriteSurvival readWriteSurvival = ReadWriteSurvival.getInstance();
     public static List<Equipment> equipmentList;
     static {
             equipmentList = readWriteEquipment.readData();
@@ -57,6 +58,18 @@ public class Admin implements Serializable {
         readWriteEquipment.writeData(equipmentList);
     }
     public void removeEquip(int index){
+        equipmentList.remove(index);
+        readWriteEquipment.writeData(equipmentList);
+    }
+    public void removeEquip(String name){
+        int index=0;
+        for (Equipment e:equipmentList
+             ) {
+            if (Objects.equals(e.getName(), name)){
+                break;
+            }
+            index++;
+        }
         equipmentList.remove(index);
         readWriteEquipment.writeData(equipmentList);
     }
