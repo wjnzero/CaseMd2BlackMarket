@@ -1,6 +1,7 @@
 package view;
 
 import controller.Admin;
+import controller.SurvivalControl;
 import model.equipment.Armor;
 import model.equipment.Equipment;
 import model.equipment.Food;
@@ -15,10 +16,12 @@ import java.util.Scanner;
 
 public class Main {
     public static Admin admin = new Admin();
+    public static SurvivalControl survivalControl;
     public static java.util.List<Equipment> equipmentList = Admin.equipmentList;
     public static List<Survival> survivalList = Admin.survivalList;
 
     static int count = 0;
+    static String code = "";
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -34,11 +37,13 @@ public class Main {
 //        Scanner in = new Scanner(System.in);
 //        System.out.println("");
 //        Menu.checkingSurvival();
+//        admin.setCoin(9999999);
         index();
 //        Menu.addEquip();
 //        admin.removeEquip(4);
 //        System.out.println(equipmentList);
 //        admin.removeEquip(5);
+
     }
     public static void index() {
         Menu.welcome();
@@ -67,7 +72,7 @@ public class Main {
                     break;
             }
         } catch (Exception e){
-            System.out.println("you fill text, market closed!");
+            System.out.println("noob, market closed!");
         }
 
 
@@ -84,8 +89,43 @@ public class Main {
             case 2:
                 clear();
                 sleep(0.01);
-//                Menu.checkingSurvival();
+                adminSurvivalList();
 //                checkSurvival();
+                break;
+            case 0:
+                clear();
+                sleep(0.01);
+                index();
+                break;
+            default:
+                System.out.println("[❌] Wrong answer !!!");
+                break;
+        }
+    }
+    public static void survivalView(){
+        Menu.welcomeSurvival();
+        int choice = Integer.parseInt(scanner.nextLine());
+        switch (choice) {
+            case 1:
+                clear();
+                sleep(0.01);
+                Menu.survivalEquipList();
+                break;
+            case 2:
+                clear();
+                sleep(0.01);
+                adminSurvivalList();
+//                checkSurvival();
+                break;
+            case 9:
+                System.out.println("input coin:");
+                double coin = scanner.nextDouble();
+                survivalControl.buyCoin(coin);
+                Admin.setCoin(Admin.getCoin()-coin);
+                clear();
+                sleep(0.01);
+                scanner=new Scanner(System.in);
+                survivalView();
                 break;
             case 0:
                 clear();
@@ -126,6 +166,40 @@ public class Main {
                 sleep(0.01);
                 scanner = new Scanner(System.in);
                 adminEquipmentList();
+                break;
+            case 0:
+                clear();
+                sleep(0.01);
+                adminView();
+                break;
+            default:
+                System.out.println("[❌] Wrong answer !!!");
+                break;
+        }
+    }
+    public static void adminSurvivalList(){
+        Menu.adminSurvivalList();
+        int choice = Integer.parseInt(scanner.nextLine());
+        switch (choice) {
+            case 1:
+                System.out.println("survival code:");
+                String code = scanner.nextLine();
+                System.out.println("coin:");
+                double coin = scanner.nextDouble();
+                admin.addSurvival(new Survival(code,coin));
+                clear();
+                sleep(0.01);
+                scanner = new Scanner(System.in);
+                adminSurvivalList();
+                break;
+            case 2:
+                System.out.println("Index? :");
+                int index = scanner.nextInt();
+                admin.removeSurvival(index);
+                clear();
+                sleep(0.01);
+                scanner = new Scanner(System.in);
+                adminSurvivalList();
                 break;
             case 0:
                 clear();
@@ -222,9 +296,12 @@ public class Main {
     }
 
     private static void checkSurvival() {
-        String code = scanner.nextLine();
-        if (admin.checkSurvival(code)){
-            System.out.println("phog");
+        code = scanner.nextLine();
+        if (admin.checkSurvival(code)!=null){
+            survivalControl = new SurvivalControl(code);
+            clear();
+            sleep(0.01);
+            survivalView();
         }
         else if (Objects.equals(code, "0")){
             clear();

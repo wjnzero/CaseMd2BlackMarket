@@ -159,6 +159,52 @@ public class Menu {
                 "╚=====================================================================╝");
         System.out.print("Fill here ▄︻┻═┳一: ");
     }
+    public static void welcomeSurvival(){
+        System.out.println("╔=====================================================================╗\n"+
+                "║       ▀▀▀░░░░░░░▀▀▀       ║\t☠☠☠ŚÚŔVĨVÁĹ ßĹÁČĶ MÁŔĶĔŤ☠☠☠\t  ║\n" +
+                "║    ▀░░░░░░░░░░░░░░░░░▀    ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
+                "║   │░░░░░░░░░░░░░░░░░░░│   ║\t"+"=> Halo, "+ Main.survivalControl.currentCode() +"\t\t\t\t\t  ║\n" +
+                "║  ▌│░░░░░░░░░░░░░░░░░░░│▐  ║\t"+"=> Your coin: "+ Main.survivalControl.currentCoin() +"\t\t\t\t\t  ║\n" +
+                "║  ░└┐░░░░░░░░░░░░░░░░░┌┘░  ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
+                "║  ░░└┐░░░░░░░░░░░░░░░┌┘░░  ║\t"+Main.survivalControl.info1()+"\t\t  ║\n" +
+                "║  ░░┌┘▄▄▄▄▄░░░░░▄▄▄▄▄└┐░░  ║\t"+Main.survivalControl.info2()+"\t\t  ║\n" +
+                "║  ▌░│      ▌░░░▐      │░▐  ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
+                "║   ░│▐   ▀▀░░▄░░▀▀   ▌│░   ║\t"+Main.survivalControl.slot1()+"\t  ║\n" +
+                "║  ▀─┘░░░░░░░▐ ▌░░░░░░░└─▀  ║\t"+Main.survivalControl.slot2()+"\t\t  ║\n" +
+                "║  ▄░░░▄▄▄▓░░▀ ▀░░▓▄▄▄░░░▄  ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
+                "║    ▄─┘  ▌░░░░░░░▐  └─▄    ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
+                "║     ░░▐ ─┬┬┬┬┬┬┬─ ▌░░     ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
+                "║    ▌░░░▀┬┼┼┼┼┼┼┼┬▀░░░▐    ║\t"+">[9] Buy Coin"+"\t\t\t\t\t\t  ║\n" +
+                "║     ▄░░░└┴┴┴┴┴┴┴┘░░░▄     ║\t"+">[1] Go to Shop"+"\t\t\t\t\t\t  ║\n" +
+                "║  ░░┌┘▄▄▄▄▄░░░░░▄▄▄▄▄└┐░░  ║\t"+">[2] Inventory"+"\t\t\t\t\t\t  ║\n" +
+                "║  ▌░│      ▌░░░▐      │░▐  ║\t"+">[0] Return"+"\t\t\t\t\t\t\t  ║\n" +
+                "╚=====================================================================╝");
+        System.out.print("Fill here ▄︻┻═┳一: ");
+    }
+    public static void survivalEquipList(){
+
+        System.out.println("╔=====================================================================╗\n"+
+                "║       ▀▀▀░░░░░░░▀▀▀       ║\t☠☠☠ŚÚŔVĨVÁĹ ßĹÁČĶ MÁŔĶĔŤ☠☠☠\t  ║\n" +
+                "║    ▀░░░░░░░░░░░░░░░░░▀    ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
+                "║   │░░░░░░░░░░░░░░░░░░░│   ║\t"+"=> Halo, "+ Main.survivalControl.currentCode() +"\t\t\t\t\t  ║\n" +
+                "║  ▌│░░░░░░░░░░░░░░░░░░░│▐  ║\t"+"=> Your coin: "+ Main.survivalControl.currentCoin() +"\t\t\t\t\t  ║\n" +
+                "║  ░└┐░░░░░░░░░░░░░░░░░┌┘░  ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
+                "║  ░░└┐░░░░░░░░░░░░░░░┌┘░░  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║  ░░┌┘▄▄▄▄▄░░░░░▄▄▄▄▄└┐░░  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║  ▌░│      ▌░░░▐      │░▐  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║   ░│▐   ▀▀░░▄░░▀▀   ▌│░   ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║  ▀─┘░░░░░░░▐ ▌░░░░░░░└─▀  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║  ▄░░░▄▄▄▓░░▀ ▀░░▓▄▄▄░░░▄  ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║    ▄─┘  ▌░░░░░░░▐  └─▄    ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║     ░░▐ ─┬┬┬┬┬┬┬─ ▌░░     ║\t"+ equipmentName()+"\t\t\t\t\t\t  ║\n" +
+                "║    ▌░░░▀┬┼┼┼┼┼┼┼┬▀░░░▐    ║\t"+">[1] Add"+"\t\t\t\t\t\t\t  ║\n" +
+                "║     ▄░░░└┴┴┴┴┴┴┴┘░░░▄     ║\t"+">[2] Set"+"\t\t\t\t\t\t\t  ║\n" +
+                "║       ▄░░░░░░░░░░░▄       ║\t"+">[3] Remove"+"\t\t\t\t\t\t\t  ║\n" +
+                "║          ▄▄▄▄▄▄▄          ║\t"+">[0] Return"+"\t\t\t\t\t\t\t  ║\n" +
+                "╚=====================================================================╝");
+        System.out.print("Fill here ▄︻┻═┳一: ");
+        number=0;
+    }
     public static void adminEquipList(){
 
         System.out.println("╔=====================================================================╗\n"+
@@ -183,18 +229,60 @@ public class Menu {
         System.out.print("Fill here ▄︻┻═┳一: ");
         number=0;
     }
+    public static void adminSurvivalList(){
+
+        System.out.println("╔=====================================================================╗\n"+
+                "║       ▀▀▀░░░░░░░▀▀▀       ║\t☠☠☠ŚÚŔVĨVÁĹ ßĹÁČĶ MÁŔĶĔŤ☠☠☠\t  ║\n" +
+                "║    ▀░░░░░░░░░░░░░░░░░▀    ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
+                "║   │░░░░░░░░░░░░░░░░░░░│   ║\t"+"=> Halo, hung nguyen."+"\t\t\t\t  ║\n" +
+                "║  ▌│░░░░░░░░░░░░░░░░░░░│▐  ║\t"+"Available Survival: " +"\t\t\t\t  ║\n" +
+                "║  ░└┐░░░░░░░░░░░░░░░░░┌┘░  ║\t\t\t\t\t\t\t\t\t\t  ║\n" +
+                "║  ░░└┐░░░░░░░░░░░░░░░┌┘░░  ║\t"+ survivalName()+"\t\t\t\t\t\t  ║\n" +
+                "║  ░░┌┘▄▄▄▄▄░░░░░▄▄▄▄▄└┐░░  ║\t"+ survivalName()+"\t\t\t\t\t\t  ║\n" +
+                "║  ▌░│      ▌░░░▐      │░▐  ║\t"+ survivalName()+"\t\t\t\t\t\t  ║\n" +
+                "║   ░│▐   ▀▀░░▄░░▀▀   ▌│░   ║\t"+ survivalName()+"\t\t\t\t\t\t  ║\n" +
+                "║  ▀─┘░░░░░░░▐ ▌░░░░░░░└─▀  ║\t"+ survivalName()+"\t\t\t\t\t\t  ║\n" +
+                "║  ▄░░░▄▄▄▓░░▀ ▀░░▓▄▄▄░░░▄  ║\t"+ survivalName()+"\t\t\t\t\t\t  ║\n" +
+                "║    ▄─┘  ▌░░░░░░░▐  └─▄    ║\t"+ survivalName()+"\t\t\t\t\t\t  ║\n" +
+                "║     ░░▐ ─┬┬┬┬┬┬┬─ ▌░░     ║\t"+ survivalName()+"\t\t\t\t\t\t  ║\n" +
+                "║    ▌░░░▀┬┼┼┼┼┼┼┼┬▀░░░▐    ║\t"+ survivalName()+"\t\t\t\t\t\t  ║\n" +
+                "║     ▄░░░└┴┴┴┴┴┴┴┘░░░▄     ║\t"+">[1] Add"+"\t\t\t\t\t\t\t  ║\n" +
+                "║       ▄░░░░░░░░░░░▄       ║\t"+">[2] Remove"+"\t\t\t\t\t\t\t  ║\n" +
+                "║          ▄▄▄▄▄▄▄          ║\t"+">[0] Return"+"\t\t\t\t\t\t\t  ║\n" +
+                "╚=====================================================================╝");
+        System.out.print("Fill here ▄︻┻═┳一: ");
+        number=0;
+    }
     public static String equipmentName(){
             try {
                 String name = null;
-                name = Main.equipmentList.get(number).getName()+"("+(Main.equipmentList.get(number).getClass()).getSimpleName()+")";
+                name = Admin.equipmentList.get(number).getName()+"("+(Admin.equipmentList.get(number).getClass()).getSimpleName()+")";
                 if (name.length()<15)
                     name+="\t";
+
                 number++;
                 return name;
             }
             catch (Exception e){
                 return "\t\t\t";
             }
+    }
+    public static String survivalName(){
+        try {
+            String name = null;
+            name = Admin.survivalList.get(number).getCode();
+            if (name.length()<5)
+                name+="\t\t\t";
+            else if (name.length()<7)
+                name+="\t\t";
+            else if (name.length() == 8)
+                name+="\t";
+            number++;
+            return name;
+        }
+        catch (Exception e){
+            return "\t\t\t";
+        }
     }
 
     public static void block(){
