@@ -1,6 +1,7 @@
 package view;
 
 import controller.Admin;
+import model.equipment.Armor;
 import model.equipment.Equipment;
 import model.user.Survival;
 
@@ -31,8 +32,11 @@ public class Main {
 //        Scanner in = new Scanner(System.in);
 //        System.out.println("");
 //        Menu.checkingSurvival();
-        index();
-//        Menu.adminEquipList();
+//        index();
+//        Menu.addEquip();
+//        admin.removeEquip(4);
+//        System.out.println(equipmentList);
+//        admin.removeEquip(5);
     }
     public static void index() {
         Menu.welcome();
@@ -73,7 +77,6 @@ public class Main {
             case 1:
                 clear();
                 sleep(0.01);
-                Menu.adminEquipList();
                 adminEquipmentList();
                 break;
             case 2:
@@ -93,13 +96,15 @@ public class Main {
         }
     }
     public static void adminEquipmentList(){
+        Menu.adminEquipList();
+        System.out.print("Fill here ▄︻┻═┳一: ");
         int choice = Integer.parseInt(scanner.nextLine());
         switch (choice) {
             case 1:
                 clear();
                 sleep(0.01);
-                Menu.adminEquipList();
-//                checkSurvival();
+                Menu.addEquip();
+                addE();
                 break;
             case 2:
                 clear();
@@ -122,6 +127,53 @@ public class Main {
                 System.out.println("[❌] Wrong answer !!!");
                 break;
         }
+    }
+    public static void addE(){
+        int choice = Integer.parseInt(scanner.nextLine());
+        switch (choice) {
+            case 1:
+                System.out.println("Armor");
+                System.out.println("name:");
+                String name = scanner.nextLine();
+                System.out.println("notes:");
+                String notes = scanner.nextLine();
+                System.out.println("type:");
+                String type = scanner.nextLine();
+                System.out.println("price:");
+                int price = scanner.nextInt();
+                System.out.println("durability:");
+                int durability = scanner.nextInt();
+                System.out.println("defence:");
+                int defence = scanner.nextInt();
+                System.out.println("speed:");
+                int speed = scanner.nextInt();
+                System.out.println("armorRadiation:");
+                int armorRadiation = scanner.nextInt();
+                admin.addEquip(new Armor(name,notes,type,price,durability,defence,speed,armorRadiation));
+                clear();
+                sleep(0.01);
+                adminEquipmentList();
+                break;
+            case 2:
+                System.out.println("Food:");
+//                Menu.checkingSurvival();
+//                checkSurvival();
+                break;
+            case 3:
+                System.out.println("Weapon:");
+//                Menu.checkingSurvival();
+//                checkSurvival();
+                break;
+            case 0:
+                clear();
+                sleep(0.01);
+                adminEquipmentList();
+                break;
+            default:
+                System.out.println("[❌] Wrong answer !!!");
+                break;
+        }
+
     }
 
     private static void checkSurvival() {
