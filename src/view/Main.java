@@ -55,10 +55,8 @@ public class Main {
                     break;
             }
         } catch (Exception e){
-            System.out.println("noob, market closed!");
+            System.out.println("Unknown error, market closed!");
         }
-
-
     }
     public static void adminView(){
         Menu.welcomeAdmin();
