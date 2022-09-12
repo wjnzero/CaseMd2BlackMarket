@@ -324,7 +324,6 @@ public class Menu {
                 name+="\t\t\t";
             else if (name.length() > 15)
                 name+="";
-
             number++;
             return name;
         }
